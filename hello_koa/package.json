@@ -1,0 +1,17 @@
+{
+    "name": "hello_koa",
+    "version": "1.0.0",
+    "description": "Hello koa2 example with async",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "keywords": [
+        "koa",
+        "async"
+    ],
+    "author": "nxsfcc",
+    "dependencies": {
+        "koa": "2.0.0"
+    }
+}
