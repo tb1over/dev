@@ -6,6 +6,9 @@ const controller = require('./controller');
 
 const app = new Koa();
 
+let staticFiles = require('./static-files')
+app.use(staticFiles('/static/', __dirname + '/static'));
+
 // log request URL:
 app.use(async (ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
