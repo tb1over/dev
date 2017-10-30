@@ -4,21 +4,39 @@ const bodyParser = require('koa-bodyparser');
 
 const controller = require('./controller');
 
+const templating = require('./templating');
+
 const app = new Koa();
+const isProduction = process.env.NODE_ENV === 'production';
 
-let staticFiles = require('./static-files')
-app.use(staticFiles('/static/', __dirname + '/static'));
 
-// log request URL:
+// 1. log request URL:
 app.use(async (ctx, next) => {
     console.log(`Process ${ctx.request.method} ${ctx.request.url}...`);
+    var 
+        start = new Date().getTime(),
+        execTime;
     await next();
+    execTime = new Date().getTime() - start;
+    ctx.response.set('X-Response-Time', `${execTime}ms`);
 });
 
-// parse request body:
+// 2. static file support
+if(!isProduction){
+    let staticFiles = require('./static-files');
+    app.use(staticFiles('/static/', __dirname+'/static'));
+}
+
+// 3. parse request body:
 app.use(bodyParser());
 
-// add controllers:
+// 4. add nunjucks as view:
+app.use(templating('views', {
+    noCache: !isProduction,
+    watch: !isProduction
+}));
+
+// 5. add controllers:
 app.use(controller());
 
 app.listen(3000);
