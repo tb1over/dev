@@ -285,3 +285,5 @@ git push origin master //把本地master分支推送到GitHub
 
 ## git clone address
 ## git pull
+
+从远程web分支拉到本地web分支：git pull origin web:web
