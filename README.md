@@ -268,7 +268,18 @@ git push origin master //把本地master分支推送到GitHub
 ![](https://www.liaoxuefeng.com/files/attachments/0013849087937492135fbf4bbd24dfcbc18349a8a59d36d000/0)
 
 每次提交，master分支都会向前移动一步.
-
+- 查看分支：
+    git branch
+- 创建分支：
+    git branch <name>
+- 切换分支：
+    git checkout <name>
+- 创建+切换分支:
+    git checkout -b <name>
+- 合并某分支到当前分支:
+    git merge <name>
+- 删除分支:
+    git branch -d <name>
 
 ## git push origin master
 
