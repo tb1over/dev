@@ -282,6 +282,7 @@ git push origin master //把本地master分支推送到GitHub
     git branch -d <name>
 
 ## git push origin master
+git push origin “本地分支名称:远程分支名称”将本地分支推送至远程仓库
 
 ## git clone address
 ## git pull
