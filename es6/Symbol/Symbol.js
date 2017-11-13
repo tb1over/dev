@@ -48,3 +48,51 @@ const objectSymbols = Object.getOwnPropertySymbols(obj);
 console.log(objectSymbols);     //数组
 */
 
+/*
+const obj = {};
+
+let foo = Symbol('foo');
+
+Object.defineProperty(obj, foo, {value:'football'});
+
+for(let i in obj){
+    console.log(i);     //无输出
+}
+
+console.log(Object.getOwnPropertyNames(obj));   //[]
+
+console.log(Object.getOwnPropertySymbols(obj)); // [Symbol(foo)]
+*/
+
+/*
+//5. 新的api ， Reflect.ownKeys 可以返回所有类型的键名
+let obj = {
+    [Symbol('my_key')] : 1,
+    enum : 2,
+    nonenum : 3
+};
+console.log(Reflect.ownKeys(obj)); //  ["enum", "nonEnum", Symbol(my_key)]
+*/
+
+/*
+//6 Symbol.for()  Symbol.keyFor()
+// Symbol.for()会被登记在全局环境中，但是Symbol不会
+// Symbol.for()不会每次都返回一个新的Symbol类型的值，而是先检查给定的key是否已经存在
+let s1 = Symbol.for('foo');
+let s2 = Symbol.for('foo');
+console.log(s1 === s2);     //true
+
+let s =  Symbol.for('bar') === Symbol.for('bar');
+console.log(s);             //true
+
+let t = Symbol('m') === Symbol('m');
+console.log(t);             //false
+
+// Symbol.keyFor()返回一个已登记的Symbol类型值的key
+let ss = Symbol.for('cc');
+console.log(Symbol.keyFor(ss));     //cc
+
+let tt = Symbol('dd');
+console.log(Symbol.keyFor(tt));     //undefined
+*/
+
