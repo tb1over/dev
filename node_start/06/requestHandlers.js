@@ -13,7 +13,7 @@ function start(response, request){
         </head>
         <body>
             <form action="/upload" method="post" enctype="multipart/form-data">
-                <input type="file" name=upload/>
+                <input type="file" name="upload"/>
                 <input type="submit" value="Submit text" />
             </form>
         </body>
@@ -32,26 +32,26 @@ function upload(response, request){
     var form = new formidable.IncomingForm();
     console.log("about to parse...");
 
-    form.parse(request, function(error, fields, files){
-        console.log('parse done...');
-        fs.renameSync(files.upload.path, "/img/git.jpg");
-
+    form.parse(request, function(error, fields, files) {
+        console.log("parsing done");
+        fs.renameSync(files.upload.path, "/tmp/git.jpeg");
         response.writeHead(200, {"Content-Type": "text/html"});
         response.write("received image:<br/>");
-        response.write("<img src='/show' />")
-    });
+        response.write("<img src='/show' />");
+        response.end();
+      })
 }
 
 function show(response, request){
-    console.log('Request handler "upload" was called...');
+    console.log('Request handler "show" was called...');
 
-    fs.readFile("/img/git.jpg", "binary", (error, file)=>{
+    fs.readFile("/tmp/git.jpeg", "binary", (error, file)=>{
         if(error){
             response.writeHead(200, {"Content-Type":"text/plain"});
             response.write(error + "\n");
             response.end();
         }else{
-            response.writeHead(200, {"Content-Type":"image/jpg"});
+            response.writeHead(200, {"Content-Type":"image/jpeg"});
             response.write(file, "binary");
             response.end();
         }
