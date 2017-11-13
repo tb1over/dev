@@ -2,3 +2,4 @@ koa_url2/.gitignore
 koa_url2/node_modules/*
 use-nunjucks/node_modules/*
 koa_view/node_modules/*
+node_start/06/node_modules/*
