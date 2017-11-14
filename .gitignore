@@ -4,3 +4,4 @@ use-nunjucks/node_modules/*
 koa_view/node_modules/*
 node_start/05/node_modules/*
 node_start/06/node_modules/*
+node_web/myblog*/node_modules/*
