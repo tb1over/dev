@@ -6,7 +6,12 @@ const chekLogin = require('../middlewares/check').checkLogin;
 
 //GET /signout 登出
 router.get('/', chekLogin, (req, res, next)=>{
-    res.send('登出');
+    //清空sessiong数据
+    req.session.user = null;
+    req.flash('success', '登出成功');
+
+    //跳转到主页
+    res.redirect('/posts');
 });
 
 module.exports = router;
