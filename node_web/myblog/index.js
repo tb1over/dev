@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
     name: config.session.key, //设置cookie中保存session_id的字段的名字
     secret: config.session.secret,  //通过设置secret来计算hash，并放在cookie中，产生的singnedCooke防篡改
-    resave : treu, //强制更新session
+    resave : true, //强制更新session
     saveUninitialized: false, //强制创建一个session，即使未登录
     cookie:{
         maxAge : config.session.maxAge
