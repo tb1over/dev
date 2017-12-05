@@ -1,0 +1,24 @@
+{
+  "name": "immoc",
+  "version": "1.0.0",
+  "description": "a movie website by node",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.16.2",
+    "jade": "^1.11.0",
+    "moment": "^2.19.3",
+    "mongoose": "^4.13.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "movie",
+    "node",
+    "express",
+    "jade"
+  ],
+  "author": "nxsfcc",
+  "license": "ISC"
+}
